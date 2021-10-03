@@ -4,7 +4,6 @@ const { getDroneCode, getDroneResponse } = require("./drone.js");
 var {performance} = require('perf_hooks');
 async function communicateToDrone(reqID)
 {
-  var t0 = performance.now();
   const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -33,6 +32,7 @@ keys.map((v, i) => {
 console.log("****************************");
 
 rl.question("Please enter a drone ID to verify\n", async (droneID) => {
+  var t0 = performance.now();
   selectedID = droneID;
   if (keys.includes(droneID.trim())) {
     var indx = keys.indexOf(droneID.trim());
